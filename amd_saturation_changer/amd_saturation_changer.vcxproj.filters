@@ -72,5 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="settings.ini" />
+    <None Include="bin\settings.ini" />
+    <None Include="bin\amd_saturation_changer.exe" />
   </ItemGroup>
 </Project>

@@ -42,6 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>E:\MsvsC++\boost_1_55_0_msvc110;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)$(ProjectName)\bin</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -104,6 +105,8 @@
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\amd_saturation_changer.exe" />
+    <None Include="bin\settings.ini" />
     <None Include="settings.ini" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
