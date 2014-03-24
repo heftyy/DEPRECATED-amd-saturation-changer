@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 #include "main.h"
-#include "amd_saturation_changer.h"
+#include "src/amd_saturation_changer.h"
 
 #define MAX_LOADSTRING 100
 

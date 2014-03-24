@@ -1,4 +1,4 @@
 #pragma once
 
 #include "resource.h"
-#include "convert_strings.h"
+#include "src/convert_strings.h"
