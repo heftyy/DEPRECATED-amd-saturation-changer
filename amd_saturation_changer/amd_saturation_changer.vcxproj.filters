@@ -27,25 +27,25 @@
     <ClInclude Include="Resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="interruptable_thread.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="amd_saturation_controller.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="process_manager.h">
+    <ClInclude Include="src\amd_saturation_controller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="settings.h">
+    <ClInclude Include="src\convert_strings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="amd_saturation_changer.h">
+    <ClInclude Include="src\interruptable_thread.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="convert_strings.h">
+    <ClInclude Include="src\process_manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\settings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\amd_saturation_changer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
