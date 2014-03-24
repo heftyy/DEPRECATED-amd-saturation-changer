@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v120_xp</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>E:\MsvsC++\boost_1_55_0_msvc110;$(IncludePath)</IncludePath>
-    <OutDir>$(SolutionDir)$(ProjectName)\bin</OutDir>
+    <OutDir>$(SolutionDir)$(ProjectName)\bin_winxp</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -107,6 +107,8 @@
   <ItemGroup>
     <None Include="bin\amd_saturation_changer.exe" />
     <None Include="bin\settings.ini" />
+    <None Include="bin_winxp\amd_saturation_changer.exe" />
+    <None Include="bin_winxp\settings.ini" />
     <None Include="settings.ini" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

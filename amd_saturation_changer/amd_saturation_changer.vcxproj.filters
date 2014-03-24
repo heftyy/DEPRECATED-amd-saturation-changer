@@ -74,5 +74,7 @@
     <None Include="settings.ini" />
     <None Include="bin\settings.ini" />
     <None Include="bin\amd_saturation_changer.exe" />
+    <None Include="bin_winxp\amd_saturation_changer.exe" />
+    <None Include="bin_winxp\settings.ini" />
   </ItemGroup>
 </Project>
