@@ -42,7 +42,7 @@ public:
 		normal_saturation = pt.get("normal_saturation", 100);
 		process_saturation = pt.get("process_saturation", 200);
 		normal_brightness = pt.get("normal_brightness", 0);
-		process_brightness = pt.get("process_brightness", 50);
+		process_brightness = pt.get("process_brightness", 25);
 		normal_contrast = pt.get("normal_contrast", 100);
 		process_contrast = pt.get("process_contrast", 125);
 

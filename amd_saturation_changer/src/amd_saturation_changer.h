@@ -88,7 +88,16 @@ public:
 		}
 		catch (std::runtime_error)
 		{
-			std::cerr << "Couldn't read settings file" << std::endl;
+			settings->normal_brightness = 0;
+			settings->normal_contrast = 100;
+			settings->normal_saturation = 100;
+
+			settings->process_brightness = 25;
+			settings->process_contrast = 125;
+			settings->process_saturation = 200;
+			
+			settings->process_name = "csgo.exe";
+			std::cerr << "Couldn't read settings file, settigns default values" << std::endl;
 			return;
 		}
 	}
