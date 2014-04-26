@@ -40,19 +40,26 @@ public:
 	{
 		check_for_process->start_thread([this]()
 		{
-			int current_saturation = saturation_controller->get_saturation(settings->logical_display_id);
+			int current_saturation = saturation_controller->get_setting(settings->logical_display_id, ADL_DISPLAY_COLOR_SATURATION);
+			int current_brightness = saturation_controller->get_setting(settings->logical_display_id, ADL_DISPLAY_COLOR_BRIGHTNESS);
+			int current_contrast = saturation_controller->get_setting(settings->logical_display_id, ADL_DISPLAY_COLOR_CONTRAST);
 			while (1)
 			{
 				check_for_process->check_for_interrupt();
+
 				if (process->is_process_running(settings->process_name) && current_saturation != settings->process_saturation)
 				{
 					std::cout << "Found process " << settings->process_name << ", changing saturation" << std::endl;
-					current_saturation = saturation_controller->change_saturation(settings->process_saturation, settings->logical_display_id);
+					current_saturation = saturation_controller->set_setting(settings->process_saturation, settings->logical_display_id, ADL_DISPLAY_COLOR_SATURATION);
+					current_brightness = saturation_controller->set_setting(settings->process_brightness, settings->logical_display_id, ADL_DISPLAY_COLOR_BRIGHTNESS);
+					current_contrast = saturation_controller->set_setting(settings->process_contrast, settings->logical_display_id, ADL_DISPLAY_COLOR_CONTRAST);
 				}
 				else if (!process->is_process_running(settings->process_name) && current_saturation != settings->normal_saturation)
 				{
 					std::cout << "Didn't find process " << settings->process_name << ", changing saturation" << std::endl;
-					current_saturation = saturation_controller->change_saturation(settings->normal_saturation, settings->logical_display_id);
+					current_saturation = saturation_controller->set_setting(settings->normal_saturation, settings->logical_display_id, ADL_DISPLAY_COLOR_SATURATION);
+					current_brightness = saturation_controller->set_setting(settings->normal_brightness, settings->logical_display_id, ADL_DISPLAY_COLOR_BRIGHTNESS);
+					current_contrast = saturation_controller->set_setting(settings->normal_contrast, settings->logical_display_id, ADL_DISPLAY_COLOR_CONTRAST);
 				}
 				std::chrono::milliseconds sleep_duration(500);
 				std::this_thread::sleep_for(sleep_duration);
@@ -60,9 +67,17 @@ public:
 		});
 	}
 
+	void set_default_settings() 
+	{
+		saturation_controller->set_setting(settings->normal_saturation, settings->logical_display_id, ADL_DISPLAY_COLOR_SATURATION);
+		saturation_controller->set_setting(settings->normal_brightness, settings->logical_display_id, ADL_DISPLAY_COLOR_BRIGHTNESS);
+		saturation_controller->set_setting(settings->normal_contrast, settings->logical_display_id, ADL_DISPLAY_COLOR_CONTRAST);
+	}
+
 	void stop()
 	{
 		check_for_process->stop();
+		set_default_settings();
 	}
 
 	void load_settings()

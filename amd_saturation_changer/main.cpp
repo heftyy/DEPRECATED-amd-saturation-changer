@@ -114,9 +114,13 @@ void ShowCurrentSettings()
 	std::string process_name("Process name = " + amd_saturation_changer->settings->process_name + "\n");
 	std::string normal_saturation("Normal saturation = " + std::to_string(amd_saturation_changer->settings->normal_saturation) + "\n");
 	std::string process_saturation("Process running saturation = " + std::to_string(amd_saturation_changer->settings->process_saturation) + "\n");
+	std::string normal_brightness("Normal brightess = " + std::to_string(amd_saturation_changer->settings->normal_brightness) + "\n");
+	std::string process_brightness("Process running brightess = " + std::to_string(amd_saturation_changer->settings->process_brightness) + "\n");
+	std::string normal_contrast("Normal contrast = " + std::to_string(amd_saturation_changer->settings->normal_contrast) + "\n");
+	std::string process_contrast("Process running contrast  = " + std::to_string(amd_saturation_changer->settings->process_contrast) + "\n");
 	std::string display_id("Display id = " + std::to_string(amd_saturation_changer->settings->logical_display_id) + "\n");
 
-	std::string message(process_name + normal_saturation + process_saturation + display_id);
+	std::string message(process_name + normal_saturation + process_saturation + normal_brightness + process_brightness + normal_contrast + process_contrast + display_id);
 	MessageBox(NULL,
 		s2ws(message).c_str(),
 		L"Current settings",

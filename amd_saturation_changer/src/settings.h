@@ -10,6 +10,10 @@ public:
 	std::string process_name;
 	int normal_saturation;
 	int process_saturation;
+	int normal_brightness;
+	int process_brightness;
+	int normal_contrast;
+	int process_contrast;
 	int logical_display_id;
 	
 	void load(const std::string &filename)
@@ -35,8 +39,13 @@ public:
 		// parameter) is returned instead. The type of the value
 		// extracted is determined by the type of the second parameter,
 		// so we can simply write get(...) instead of get<int>(...).
-		normal_saturation = pt.get("normal_saturation", 0);
-		process_saturation = pt.get("process_saturation", 0);
+		normal_saturation = pt.get("normal_saturation", 100);
+		process_saturation = pt.get("process_saturation", 200);
+		normal_brightness = pt.get("normal_brightness", 0);
+		process_brightness = pt.get("process_brightness", 50);
+		normal_contrast = pt.get("normal_contrast", 100);
+		process_contrast = pt.get("process_contrast", 125);
+
 		logical_display_id = pt.get("logical_display_id", 0);
 	}
 
@@ -52,6 +61,10 @@ public:
 		// Put debug level in property tree
 		pt.put("debug.level", normal_saturation);
 		pt.put("debug.level", process_saturation);
+		pt.put("debug.level", normal_brightness);
+		pt.put("debug.level", process_brightness);
+		pt.put("debug.level", normal_contrast);
+		pt.put("debug.level", process_contrast);
 		pt.put("debug.level", logical_display_id);
 
 		// Write the property tree to the XML file.

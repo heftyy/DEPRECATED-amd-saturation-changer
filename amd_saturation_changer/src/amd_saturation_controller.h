@@ -162,7 +162,7 @@ public:
 #endif
 	}
 
-	int get_saturation(int logical_display_id)
+	int get_setting(int logical_display_id, int setting)
 	{
 		// Repeat for all available adapters in the system
 		for (i = 0; i < iNumberAdapters; i++)
@@ -195,10 +195,10 @@ public:
 				iColorCaps &= iValidBits;
 
 				// Check if the display supports this particular capability
-				if (ADL_DISPLAY_COLOR_SATURATION & iColorCaps)
+				if (setting & iColorCaps)
 				{
 					// Get the Current display Brightness, Default value, Min, Max and Step
-					if (ADL_OK == ADL_Display_Color_Get(iAdapterIndex, iDisplayIndex, ADL_DISPLAY_COLOR_SATURATION,
+					if (ADL_OK == ADL_Display_Color_Get(iAdapterIndex, iDisplayIndex, setting,
 						&iCurrent, &iDefault, &iMin, &iMax, &iStep))
 					{
 						return iCurrent;
@@ -206,9 +206,10 @@ public:
 				}
 			}
 		}
+		return -1;
 	}
 
-	int change_saturation(int saturation, int logical_display_id)
+	int set_setting(int value, int logical_display_id, int setting)
 	{
 		// Repeat for all available adapters in the system
 		for (i = 0; i < iNumberAdapters; i++)
@@ -241,22 +242,23 @@ public:
 				iColorCaps &= iValidBits;
 
 				// Check if the display supports this particular capability
-				if (ADL_DISPLAY_COLOR_SATURATION & iColorCaps)
+				if (setting & iColorCaps)
 				{
 					// Get the Current display Brightness, Default value, Min, Max and Step
-					if (ADL_OK == ADL_Display_Color_Get(iAdapterIndex, iDisplayIndex, ADL_DISPLAY_COLOR_SATURATION,
+					if (ADL_OK == ADL_Display_Color_Get(iAdapterIndex, iDisplayIndex, setting,
 						&iCurrent, &iDefault, &iMin, &iMax, &iStep))
 					{
-						if (iCurrent != saturation)
+						if (iCurrent != value)
 						{
-							ADL_Display_Color_Set(iAdapterIndex, iDisplayIndex, ADL_DISPLAY_COLOR_SATURATION, saturation);
-							std::cout << "Changed saturation successfully to " << saturation << std::endl;
-							return saturation;
+							ADL_Display_Color_Set(iAdapterIndex, iDisplayIndex, setting, value);
+							std::cout << "Changed saturation successfully to " << value << std::endl;
+							return value;
 						}
 						// Set half of the Min brightness for .5 sec
 					}
 				}
 			}
 		}
+		return -1;
 	}
 };
