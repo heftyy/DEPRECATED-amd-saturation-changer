@@ -1,5 +1,5 @@
 # amd-saturation-changer
-This project is created increase saturation and brightness while playings games for AMD graphics cards.
+This project is created to increase saturation and brightness while playings games for AMD graphics cards.
 
 It checks the active list of process in windows and adjusts the saturation to levels given in the config file.
 You must place a settings.ini file in the directoy of the executable.
