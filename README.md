@@ -1,5 +1,4 @@
-# [DEPRECATED] amd-saturation-changer
-## use [Saturation changer](https://github.com/heftyy/saturation-changer)
+## [DEPRECATED] amd-saturation-changer, use [Saturation changer](https://github.com/heftyy/saturation-changer) instead
 
 This project is created to increase saturation and brightness while playings games for AMD graphics cards.
 
